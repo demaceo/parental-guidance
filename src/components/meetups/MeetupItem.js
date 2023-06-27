@@ -1,20 +1,20 @@
-import classes from "./MeetupItem.css";
+import "./MeetupItem.css";
 import React from "react";
 import Card from "../ui/Card";
 
 function MeetupItem(props) {
   return (
-    <li className={classes.item}>
+    <li className="item">
       <Card>
-        <div className={classes.image}>
+        <div className="image">
           <img src={props.image} alt={props.title} />
         </div>
-        <div className={classes.content}>
+        <div className="content">
           <h3>{props.title}</h3>
           <address>{props.address}</address>
           <p>{props.description}</p>
         </div>
-        <div className={classes.actions}>
+        <div className="actions">
           <button>To Favorites</button>
         </div>
       </Card>
