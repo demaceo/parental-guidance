@@ -11,7 +11,9 @@ function NewMeetupForm(props) {
   const submitHandler = (event) => {
     event.preventDefault();
     const enteredTitle = titleInputRef.current.value;
-    const enteredImage = imageInputRef.current.value;
+    const enteredImage =
+      imageInputRef.current.value ||
+      `https://picsum.photos/1000? ${+Math.random()}`;
     const enteredAddress = addressInputRef.current.value;
     const enteredDescription = descriptionInputRef.current.value;
 
@@ -32,7 +34,7 @@ function NewMeetupForm(props) {
         </div>
         <div className="control">
           <label htmlFor="image">Meetup Image</label>
-          <input type="url" required id="image" ref={imageInputRef} />
+          <input type="text" id="image" ref={imageInputRef} />
         </div>
         <div className="control">
           <label htmlFor="address">Meetup Address</label>
