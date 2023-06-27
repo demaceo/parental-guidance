@@ -1,7 +1,10 @@
 import React from "react";
 import NewMeetupForm from "../components/meetups/NewMeetupForm";
+import { useNavigate } from "react-router-dom";
 
 function NewMeetupPage() {
+  const navigateTo = useNavigate();
+
   function addMeetupHandler(meetupData) {
     //Google Firebase requires '.json' at the end of fetch URLs
     fetch(
@@ -13,7 +16,9 @@ function NewMeetupPage() {
           "Content-Type": "application/json",
         },
       }
-    );
+    ).then(() => {
+        navigateTo("/");
+    })
   }
   return (
     <section>
