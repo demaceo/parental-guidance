@@ -4,13 +4,13 @@ import "./MainNavigation.css";
 
 function MainNavigation() {
   return (
-    <header>
-      <div>React Meetups</div>
+    <header className="header">
+      <div className="logo">React Meetups</div>
       <nav>
-        <ul>
+        <ul className="badge">
           <li>
             <Link to="/">Some Link</Link>
-          </li>{" "}
+          </li>
           <li>
             <Link to="/new-meetup">Add New Meetup</Link>
           </li>
