@@ -1,23 +1,38 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
+import { useLocalStorage } from "./useLocalStorage";
 
 const FavoritesContext = createContext({
   favorites: [],
   totalFavorites: 0,
-  addFavorite: (favoriteMeetup) => {},
+  addFavorite: (favoriteLink) => {},
   removeFavorite: (meetupId) => {},
   itemIsFavorite: (meetupId) => {},
 });
 
 export function FavoritesContextProvider(props) {
+  const [localStorage, setLocalStorage] = useLocalStorage("favorites");
   const [userFavorites, setUserFavorites] = useState([]);
 
-  function addFavoriteHandler(favoriteMeetup) {
-    setUserFavorites((prevUserFavorites) => {
-      return prevUserFavorites.concat(favoriteMeetup);
-    });
+  useEffect(() => {
+    let userFavorites = localStorage;
+    userFavorites = userFavorites ? userFavorites : [];
+    setUserFavorites(userFavorites);
+  }, []);
+
+  function addFavoriteHandler(favoriteLink) {
+    if (!userFavorites) {
+      setUserFavorites([favoriteLink]);
+      setLocalStorage(userFavorites);
+    } else {
+      setUserFavorites([favoriteLink, ...userFavorites]);
+      setLocalStorage([favoriteLink, ...userFavorites]);
+    }
   }
 
   function removeFavoriteHandler(meetupId) {
+    setLocalStorage((prevUserFavorites) => {
+      return prevUserFavorites.filter((meetup) => meetup.id !== meetupId);
+    });
     setUserFavorites((prevUserFavorites) => {
       return prevUserFavorites.filter((meetup) => meetup.id !== meetupId);
     });
