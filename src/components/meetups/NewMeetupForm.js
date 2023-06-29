@@ -4,56 +4,62 @@ import Card from "../ui/Card";
 
 function NewMeetupForm(props) {
   const titleInputRef = useRef();
-  const imageInputRef = useRef();
-  const addressInputRef = useRef();
-  const descriptionInputRef = useRef();
+  // const imageInputRef = useRef();
+  const fromInputRef = useRef();
+  // const descriptionInputRef = useRef();
 
-  const submitHandler = (event) => {
+  async function submitHandler(event) {
     event.preventDefault();
     const enteredTitle = titleInputRef.current.value;
-    const enteredImage =
-      imageInputRef.current.value ||
-      `https://picsum.photos/1000? ${+Math.random()}`;
-    const enteredAddress = addressInputRef.current.value;
-    const enteredDescription = descriptionInputRef.current.value;
+    const enteredFrom = fromInputRef.current.value;
+
+    const metaData = await fetch(
+      `https://jsonlink.io/api/extract?url=${enteredTitle}`
+    ).then((response) => {
+      return response.json();
+    });
+
+    console.log(metaData);
 
     const meetupData = {
-      title: enteredTitle,
-      image: enteredImage,
-      address: enteredAddress,
-      description: enteredDescription,
+      title: metaData.title,
+      image:
+        metaData.images[0] || `https://picsum.photos/1000? ${+Math.random()}`,
+      description: metaData.description,
+      link: metaData.url,
+      from: enteredFrom,
+      date: Date().toLocaleString().slice(0, 10),
     };
+    console.log(meetupData);
     props.onAddMeetup(meetupData);
   };
   return (
-    <Card>
-      <form className="form" onSubmit={submitHandler}>
-        <div className="control">
-          <label htmlFor="title">Meetup Title</label>
-          <input type="text" required id="title" ref={titleInputRef} />
-        </div>
-        <div className="control">
-          <label htmlFor="image">Meetup Image</label>
-          <input type="text" id="image" ref={imageInputRef} />
-        </div>
-        <div className="control">
-          <label htmlFor="address">Meetup Address</label>
-          <input type="text" required id="address" ref={addressInputRef} />
-        </div>
-        <div className="control">
-          <label htmlFor="description">Description</label>
-          <textarea
-            type="description"
-            required
-            rows="5"
-            ref={descriptionInputRef}
-          ></textarea>
-        </div>
-        <div className="actions">
-          <button>Add Meetup</button>
-        </div>
-      </form>
-    </Card>
+    <section className="form-section">
+      <Card>
+        <form className="form" onSubmit={submitHandler}>
+          <div className="control">
+            <label htmlFor="title">URL Link:</label>
+            <input type="url" required id="title" ref={titleInputRef} />
+          </div>
+          <div className="control">
+            <label htmlFor="parents">From:</label>
+            <select
+              name="select-list"
+              id="parents"
+              ref={fromInputRef}
+              className="dropdown-content"
+            >
+              <option value=" "> </option>
+              <option value="Fasha">Fasha</option>
+              <option value="Momar">Momar</option>
+            </select>
+          </div>
+          <div className="actions">
+            <button>Share</button>
+          </div>
+        </form>
+      </Card>
+    </section>
   );
 }
 

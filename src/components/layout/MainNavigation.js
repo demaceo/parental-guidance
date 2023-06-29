@@ -7,18 +7,18 @@ function MainNavigation() {
   const favoritesCtx = useContext(FavoritesContext);
   return (
     <header className="header">
-      <div className="logo">React Meetups</div>
+      <div className="logo">Parental Guidance</div>
       <nav>
         <ul>
           <li>
-            <Link to="/">Some Link</Link>
+            <Link to="/">All Links</Link>
           </li>
           <li>
-            <Link to="/new-meetup">Add New Meetup</Link>
+            <Link to="/new-meetup">Add New Link</Link>
           </li>
           <li>
             <Link to="/favorites">
-              My Favorites
+              Favorites
               <span className="badge">{favoritesCtx.totalFavorites}</span>
             </Link>
           </li>

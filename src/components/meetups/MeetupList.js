@@ -4,18 +4,20 @@ import React from "react";
 
 function MeetupList(props) {
   return (
-    <ul className='list'>
+    <section className="list">
       {props.meetups.map((meetup) => (
         <MeetupItem
           key={meetup.id}
           id={meetup.id}
           image={meetup.image}
+          link={meetup.link}
+          date={meetup.date}
+          description={meetup.description}
+          from={meetup.from}
           title={meetup.title}
-          address={meetup.address}
-          desciription={meetup.description}
         />
       ))}
-    </ul>
+    </section>
   );
 }
 

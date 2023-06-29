@@ -1,5 +1,11 @@
 .card {
-  background-color: white;
-  border-radius: 6px;
+  background-color: rgb(248, 247, 231);
+  /* border-radius: 6px; */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  /* color: rgb(40, 44, 52); */
+  border: solid 3px white;
+  border-radius: 15px;
+  margin: 1rem;
+  height: 90%;
+  padding-bottom: 5vh;
 }

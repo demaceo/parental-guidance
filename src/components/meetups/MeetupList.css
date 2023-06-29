@@ -1,5 +1,12 @@
 .list {
-  list-style: none;
+  /* list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 0; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  flex-direction: row;
+  margin: 0rem;
+  padding: 1px;
 }

@@ -38,19 +38,10 @@ function AllMeetupsPage() {
 
   return (
     <section>
-      <h1>All Meetups Page</h1>
+      <h1 className="meetup-header">All Shared Links</h1>
       <MeetupList meetups={loadedMeetups} />
     </section>
   );
 }
 
 export default AllMeetupsPage;
-
-/* {DUMMY_DATA.map((meetup) => {
-        return (
-          <div key={meetup.id}>
-            <h1 className='meetup-header'>{meetup.title}</h1>
-            <img src={meetup.image}></img>
-          </div>
-        );
-      })} */
