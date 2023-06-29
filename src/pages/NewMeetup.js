@@ -1,6 +1,7 @@
 import React from "react";
 import NewMeetupForm from "../components/meetups/NewMeetupForm";
 import { useNavigate } from "react-router-dom";
+import './NewMeetup.css'
 
 function NewMeetupPage() {
   const navigateTo = useNavigate();
@@ -22,7 +23,7 @@ function NewMeetupPage() {
   }
   return (
     <section>
-      <h1>Add New Meetup</h1>
+      <h1 className="meetup-header">Share A New Link</h1>
       <NewMeetupForm onAddMeetup={addMeetupHandler} />
     </section>
   );
