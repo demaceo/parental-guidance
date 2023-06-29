@@ -1,10 +1,11 @@
 .item {
-  margin: 1rem 0;
+  margin: 0rem;
+  transition: all 0.2s ease-in-out;
 }
 
 .image {
   width: 100%;
-  height: 20rem;
+  height: 10rem;
   overflow: hidden;
   border-top-right-radius: 6px;
   border-top-left-radius: 6px;
@@ -20,14 +21,23 @@
   padding: 1rem;
 }
 
+.link-description {
+  font-size: small;
+  overflow: hidden;
+}
+
 .content h3 {
   font-size: 1.25rem;
   color: #2c292b;
 }
 
-.actions {
-  padding: 1.5rem;
+/* .actions {
+  display: flex;
+  font-size: 0.7rem;
+  justify-content: flex-start;
   text-align: center;
+  width: 70%;
+  margin: 0.5rem;
 }
 
 .actions button {
@@ -36,11 +46,93 @@
   color: #77002e;
   border: 1px solid #77002e;
   background-color: transparent;
-  padding: 0.5rem 1.5rem;
+  padding: 0.5rem 1.5rem; 
   border-radius: 4px;
 }
 
 .actions button:hover,
 .actions button:active {
   background-color: #ffe2ed;
+} */
+
+
+.item:hover {
+  clip-path: circle(100% at 50% 50%);
+  transform: scale(1.1);
+}
+
+/* .item:hover .image {
+    filter: blur(10px);
+    transform: scale(1.1)
+} */
+
+.favoriteBtn {
+  font-size: clamp(1em, 10vw, 2.1em);
+  background: none;
+  border: none;
+  filter: grayscale(100%);
+  cursor: pointer;
+  transition: ease-in 0.1s;
+  margin-bottom: 3px;
+}
+
+.favoriteBtn:focus {
+  outline: none;
+}
+
+.favoriteBtn:hover {
+  transform: rotate(25deg);
+}
+
+.button-container {
+  display: flex;
+  /* justify-content: space-between;
+    flex:.3; */
+  min-width: auto;
+}
+
+.fav-btn {
+  padding: 0 !important;
+}
+
+.favorite {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: solid 3px rgb(253, 235, 103);
+  border-radius: 15px;
+  padding: clamp(0.8em, 2vh, 3em) clamp(1em, 2vw, 2em);
+  transition: all 0.2s ease-in-out;
+  margin-bottom: 1em;
+  width: clamp(15em, 60vw, 55em);
+  min-width: fit-content;
+}
+
+.favorite:hover {
+  background: orange;
+  color: #364259;
+}
+
+.remove-fav-btn {
+  font-size: clamp(0.5em, 0.75em, 1.2em);
+  font-weight: lighter;
+  color: #282c34;
+  background: none;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: ease-in 0.1s;
+  margin-bottom: 0.5vh;
+  height: 50%;
+}
+
+.remove-fav-btn:hover {
+  color: white;
+  background: #282c34;
+  border: 2px solid white;
+}
+
+.remove-fav-btn:focus {
+  outline: none;
 }
