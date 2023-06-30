@@ -1,6 +1,6 @@
 import "./MeetupItem.css";
 import React, { useContext, useState, useEffect } from "react";
-import Card from "../ui/Card";
+import Card from "../ui/Card.js";
 import FavoritesContext from "../../store/favorites-context";
 import { gsap } from "gsap";
 
@@ -42,27 +42,28 @@ function MeetupItem(props) {
         { duration: 0.2, filter: "grayscale(0%)", cursor: "default" },
         "-=.4"
       )
-      // .to(
-      //   `.title-artist-${props.id}`,
-      //   { duration: "0.2 !important", color: "rgb(253,235,103)" },
-      //   "-=.4"
-      // )
-      // .to(
-      //   `.badge-${props.id}`,
-      //   {
-      //     borderColor: "rgb(253,235,103)",
-      //     backgroundColor: "rgb(253,235,103)",
-      //     color: "rgb(40,44,52)",
-      //   },
-      //   "<"
-      // )
-      .to(`.card -${props.id}`, { border: "solid 3px rgb(253,235,103)" }, "<")
       .to(`.${"--" + props.id}`, {
         ease: "none",
         duration: 8,
         repeat: -1,
         rotate: 360,
       });
+    // .to(
+    //   `.title-artist-${props.id}`,
+    //   { duration: "0.2 !important", color: "rgb(253,235,103)" },
+    //   "-=.4"
+    // )
+    // .to(
+    //   `.badge-${props.id}`,
+    //   {
+    //     borderColor: "rgb(253,235,103)",
+    //     backgroundColor: "rgb(253,235,103)",
+    //     color: "rgb(40,44,52)",
+    //   },
+    //   "<"
+    // )
+    // .to(`.card -${props.id}`, { border: "solid 3px rgb(253,235,103)" }, "<")
+
     setInFavorites(true);
   };
 
@@ -88,8 +89,8 @@ function MeetupItem(props) {
       animateAddFavorite();
     } else {
       setInFavorites(false);
-
       favoritesCtx.removeFavorite(props.id);
+      window.location.reload();
     }
   };
 
@@ -100,12 +101,12 @@ function MeetupItem(props) {
   return (
     <div className={`item`} onDoubleClick={handleDoubleClick}>
       <Card>
-        <div className="fav-actions">
+        <div>
           <button
             className={`fav-btn favoriteBtn --${props.id}`}
             onClick={toggleFavoriteStatusHandler}
           >
-            ⭐{/* {itemIsFavorite ? "Unfavorite" : "⭐"} */}
+            ⭐
           </button>
         </div>
         <div className={`image`}>
