@@ -1,10 +1,15 @@
 .item {
   margin: 0rem;
   transition: all 0.2s ease-in-out;
+  font-weight: lighter;
 }
 
 /* ==================================== */
+.card-header{
+  display:flex;
+  justify-content: space-between;
 
+}
 .favoriteBtn {
   font-size: clamp(1em, 10vw, 2.1em);
   background: none;
@@ -22,11 +27,6 @@
 .favoriteBtn:hover {
   transform: rotate(25deg);
 }
-
-/* .button-container {
-  display: flex;
-  min-width: auto;
-} */
 
 .fav-btn {
   padding: 0 !important;
@@ -76,16 +76,16 @@
 
 /* ==================================== */
 
-
-.image {
+.card-image {
   width: 100%;
   height: 10rem;
   overflow: hidden;
+  /* object-fit: cover; */
   border-top-right-radius: 6px;
   border-top-left-radius: 6px;
 }
 
-.image img {
+.card-image img {
   width: 100%;
   object-fit: cover;
 }
@@ -95,14 +95,19 @@
   padding: 1rem;
 }
 
+.date-shared {
+  font-size: small;
+}
+
 .link-description {
   font-size: small;
   overflow: hidden;
 }
 
 .content h3 {
-  font-size: 1.25rem;
-  color: #2c292b;
+  font-size: 1rem;
+  /* font-size: calc(8px + 1vmin); */
+  color: rgb(255, 255, 255);
 }
 
 /* .actions {

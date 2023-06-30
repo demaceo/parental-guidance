@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import FavoritesContext from "../store/favorites-context";
 import MeetupList from "../components/meetups/MeetupList";
+import "./Favorites.css";
 
 function FavoritesPage() {
   const favoritesCtx = useContext(FavoritesContext);
@@ -13,7 +14,7 @@ function FavoritesPage() {
   }
   return (
     <section>
-      <h1>My Favorites</h1>
+      <h1 className="favorites-header">My Favorites</h1>
       {content}
     </section>
   );

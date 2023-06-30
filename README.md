@@ -26,7 +26,7 @@ In wanting to refresh my React Router skills, while also exposing myself to Back
 
 **Main Page**
 
-The homepage (aka 'All Links' Page) displays a list of all the previously shared links as individual 'cards'. Each card is populated by fetching stored data from Google's Firebase.
+The homepage (aka 'All Links' Page) displays a list of all the previously shared links as individual 'cards'. Cards are populated by fetching stored data from Google's Firebase. Each card displays associated data (an image, title, description, date, and the sender) of the link that was initially shared.
 
 By double clicking on a card, the link associated with it will be opened in a separate window.
 
