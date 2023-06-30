@@ -48,31 +48,9 @@ function MeetupItem(props) {
         repeat: -1,
         rotate: 360,
       });
-    // .to(
-    //   `.title-artist-${props.id}`,
-    //   { duration: "0.2 !important", color: "rgb(253,235,103)" },
-    //   "-=.4"
-    // )
-    // .to(
-    //   `.badge-${props.id}`,
-    //   {
-    //     borderColor: "rgb(253,235,103)",
-    //     backgroundColor: "rgb(253,235,103)",
-    //     color: "rgb(40,44,52)",
-    //   },
-    //   "<"
-    // )
-    // .to(`.card -${props.id}`, { border: "solid 3px rgb(253,235,103)" }, "<")
 
     setInFavorites(true);
   };
-
-  // const handleClick = () => {
-  //   if (!inFavorites) {
-  //     addFavorite(id);
-  //     animateAddFavorite();
-  //   }
-  // };
 
   const toggleFavoriteStatusHandler = () => {
     if (!inFavorites) {
@@ -99,23 +77,26 @@ function MeetupItem(props) {
   };
 
   return (
-    <div className={`item`} onDoubleClick={handleDoubleClick}>
+    <div className="item" onDoubleClick={handleDoubleClick}>
       <Card>
-        <div>
+        <div className="card-header">
           <button
             className={`fav-btn favoriteBtn --${props.id}`}
             onClick={toggleFavoriteStatusHandler}
           >
             ⭐
           </button>
-        </div>
-        <div className={`image`}>
-          <img src={props.image} alt={props.title} />
+          <p className="date-shared">{props.date}</p>
         </div>
         <div className="content">
-          <h3>{props.title}</h3>
-          <p className="link-description">{props.description}</p>
-          <p> {props.date}</p>
+          <h3>{props.title.substring(0, 70)}</h3>
+          <div className="card-image">
+            <img src={props.image} alt={props.title} />
+          </div>
+          <p className="link-description">
+            {props.description.substring(0, 200)}
+          </p>
+          <br></br>
           <address>Love, {props.from}</address>
         </div>
       </Card>
