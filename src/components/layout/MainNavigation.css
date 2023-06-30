@@ -1,17 +1,28 @@
 .header {
-  width: 100%;
+  border-radius: 15px;
+  width: 95vw;
+  margin: 0rem;
   height: 5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #77002e;
-  padding: 0 5%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  background-color: #343842;
+  padding: 0 2%;
+}
+
+.header-logo {
+  width: 5vw;
+  overflow: hidden;
+  margin-right: 1vw;
 }
 
 .logo {
   font-size: 2rem;
   color: white;
-  font-weight: bold;
+  font-weight: lighter;
+  display: flex;
+  align-items: center;
 }
 
 .header ul {
@@ -37,10 +48,10 @@
   color: white;
 }
 
-.badge {
+.favorites-badge {
   background-color: #cc2062;
   color: white;
   border-radius: 12px;
-  padding: 0 1rem;
-  margin-left: 0.5rem;
+  padding: 0 0.5rem;
+  margin-left: 5px;
 }

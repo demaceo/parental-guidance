@@ -4,7 +4,7 @@
 
 body {
   font-family: sans-serif;
-  margin: 3rem;
+  margin: 2rem;
   background-color: #dfdfdf;
 }
 
@@ -39,11 +39,11 @@ h2 {
 }
 
 .card {
-  background-color: white;
+  /* background-color: white; */
   border-radius: 4px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   padding: 1rem;
-  width: 20rem;
+  width: 17rem;
 }
 
 .actions {
