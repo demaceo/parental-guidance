@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# Parental Guidance
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
+* [Introduction](#introduction)
+* [Features](#features)
+* [Reflection](#reflection)
 
-## Available Scripts
+## Introduction
 
-In the project directory, you can run:
+### Overview
 
-### `npm start`
+In wanting to refresh my React Router skills, while also exposing myself to Backend technology, I designed this website for my parents to share links to. Instead of texting links to one another in the family group chat (where they inevitably get lost and forgetten), I designed this user-friendly website as a quick and simple tool to resolve the aforementioned problem from reoccuring.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tech Stack 
+* React
+* React Router
+* JavaScript
+* HTML
+* CSS
+* Google Firebase  
+* REST API
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+*Homepage*
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Main Page**
 
-### `npm run build`
+The homepage (aka 'All Links' Page) displays a list of all the previously shared links as individual 'cards'. Each card is populated by fetching stored data from Google's Firebase.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+By double clicking on a card, the link associated with it will be opened in a separate window.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+User's can also star any card that they would like to favorite. In doing so, this data will be stored in the user's local storage.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+*Add New Link Page*
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Add New Link Page** 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The 'Add New Link' page presents the user with a form where they can fill out and submit their links to. This form consists of a required 'Link' input and an optional 'Dropdown' menu to specify the sender. When a user submits a link, an API call is made to gather the associated metadata within that link (such as the title, description and image). This metadata is then stored in Google's Firebase.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+*Favorites Page*
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**Favorites Page** 
 
-## Learn More
+The 'Favorites' page presents the user with an updated list of any card that they've favorited. Each favorited card has an animated star associated with it. 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+By clicking that star again, the favorited card is unfavorited, removed, and the page is reloaded. 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Reflection
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### Wins
 
-### Analyzing the Bundle Size
+* Refreshing my React Router knowledge
+* Utilizing Google's Firebase
+* Implementing React context
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### Challanges
 
-### Making a Progressive Web App
+* Un/Favoriting animation.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+#### Future
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* Rename Components and files.
+* Add testing.
+* Add functionality for removing Card links.
+* Remove usage of local storage and instead use Firebase for storing Favorites.
+* Refactor code so unfavoriting doesn't rely on a page reload to reflect changes.
+* Add Responsive Design - function on a mobile device without stylistic breaks.
