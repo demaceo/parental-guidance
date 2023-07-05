@@ -89,12 +89,12 @@ function MeetupItem(props) {
           <p className="date-shared">{props.date}</p>
         </div>
         <div className="content">
-          <h3>{props.title.substring(0, 70)}</h3>
+          <h3>{props.title ? props.title.substring(0, 70) : " "}</h3>
           <div className="card-image">
             <img src={props.image} alt={props.title} />
           </div>
           <p className="link-description">
-            {props.description.substring(0, 200)}
+            {props.description ? props.description.substring(0, 200) : " "}
           </p>
           <br></br>
           <address>Love, {props.from}</address>
